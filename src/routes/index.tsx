@@ -134,9 +134,7 @@ function Index() {
                 {c.kicker}
               </div>
               <h3 className="mt-3 font-display text-2xl">{c.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {c.desc}
-              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
               <span className="mt-6 inline-block font-serif italic text-cocoa group-hover:text-coffee">
                 Abrir capítulo →
               </span>

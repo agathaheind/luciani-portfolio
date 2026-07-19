@@ -90,7 +90,9 @@ function Dossie() {
         <ul className="space-y-6">
           {projects.map((p) => (
             <li key={p.slug}>
-              <div className="font-display text-xl">{p.year} · {p.title}</div>
+              <div className="font-display text-xl">
+                {p.year} · {p.title}
+              </div>
               {p.subtitle && (
                 <div className="font-serif italic text-sm text-muted-foreground">{p.subtitle}</div>
               )}
@@ -144,17 +146,17 @@ function Dossie() {
 
       <Section title="7. Currículo condensado">
         <p className="font-serif leading-relaxed">
-          Formada em Letras Português/Espanhol pela UNIOESTE, com mestrado em Letras.
-          Atua há mais de uma década na articulação entre escrita autoral, pesquisa
-          da memória local e produção cultural, tendo organizado seminários, feiras
-          do livro, oficinas de escrita e coletâneas literárias voltadas à
-          valorização das narrativas femininas e do patrimônio da tríplice fronteira.
+          Formada em Letras Português/Espanhol pela UNIOESTE, com mestrado em Letras. Atua há mais
+          de uma década na articulação entre escrita autoral, pesquisa da memória local e produção
+          cultural, tendo organizado seminários, feiras do livro, oficinas de escrita e coletâneas
+          literárias voltadas à valorização das narrativas femininas e do patrimônio da tríplice
+          fronteira.
         </p>
       </Section>
 
       <footer className="mt-16 pt-8 border-t border-border text-center font-serif italic text-sm text-muted-foreground">
-        Dossiê gerado a partir do portfólio digital de {site.author}. Documento
-        institucional para editais públicos de fomento à cultura.
+        Dossiê gerado a partir do portfólio digital de {site.author}. Documento institucional para
+        editais públicos de fomento à cultura.
       </footer>
     </div>
   );

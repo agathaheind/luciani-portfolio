@@ -48,16 +48,16 @@
   --radius: 4px;
 
   /* Palette (oklch approximations of #F5F1E8, #E8DDCB, #A67C52, #8B5E3C, #5D4037, #4A3428) */
-  --paper:   oklch(0.955 0.014 82);   /* #F5F1E8 bege claro */
-  --sand:    oklch(0.895 0.028 76);   /* #E8DDCB areia */
-  --clay:    oklch(0.605 0.070 60);   /* #A67C52 marrom claro */
-  --cocoa:   oklch(0.490 0.068 52);   /* #8B5E3C marrom médio */
-  --coffee:  oklch(0.365 0.037 45);   /* #5D4037 marrom escuro */
-  --ink:     oklch(0.295 0.030 40);   /* #4A3428 café */
+  --paper: oklch(0.955 0.014 82); /* #F5F1E8 bege claro */
+  --sand: oklch(0.895 0.028 76); /* #E8DDCB areia */
+  --clay: oklch(0.605 0.07 60); /* #A67C52 marrom claro */
+  --cocoa: oklch(0.49 0.068 52); /* #8B5E3C marrom médio */
+  --coffee: oklch(0.365 0.037 45); /* #5D4037 marrom escuro */
+  --ink: oklch(0.295 0.03 40); /* #4A3428 café */
 
   --background: var(--paper);
   --foreground: var(--ink);
-  --card: oklch(0.975 0.010 82);
+  --card: oklch(0.975 0.01 82);
   --card-foreground: var(--ink);
   --popover: var(--paper);
   --popover-foreground: var(--ink);
@@ -66,7 +66,7 @@
   --secondary: var(--sand);
   --secondary-foreground: var(--coffee);
   --muted: var(--sand);
-  --muted-foreground: oklch(0.455 0.040 50);
+  --muted-foreground: oklch(0.455 0.04 50);
   --accent: var(--clay);
   --accent-foreground: var(--paper);
   --destructive: oklch(0.48 0.14 30);
@@ -75,8 +75,8 @@
   --input: oklch(0.83 0.028 72);
   --ring: var(--clay);
 
-  --shadow-book: 0 1px 2px oklch(0.30 0.03 45 / 0.10), 0 8px 24px oklch(0.30 0.03 45 / 0.12);
-  --shadow-page: 0 1px 0 oklch(0.30 0.03 45 / 0.06);
+  --shadow-book: 0 1px 2px oklch(0.3 0.03 45 / 0.1), 0 8px 24px oklch(0.3 0.03 45 / 0.12);
+  --shadow-page: 0 1px 0 oklch(0.3 0.03 45 / 0.06);
 }
 
 @layer base {
@@ -97,16 +97,25 @@
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.01em;
     color: var(--coffee);
   }
 
-  .font-display { font-family: var(--font-display); }
-  .font-serif   { font-family: var(--font-serif); }
-  .font-sans    { font-family: var(--font-sans); }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
 
   ::selection {
     background: var(--clay);
@@ -117,10 +126,14 @@
 @utility paper-bg {
   background-color: var(--paper);
   background-image:
-    radial-gradient(oklch(0.30 0.03 45 / 0.035) 1px, transparent 1px),
-    radial-gradient(oklch(0.30 0.03 45 / 0.025) 1px, transparent 1px);
-  background-size: 32px 32px, 17px 17px;
-  background-position: 0 0, 8px 8px;
+    radial-gradient(oklch(0.3 0.03 45 / 0.035) 1px, transparent 1px),
+    radial-gradient(oklch(0.3 0.03 45 / 0.025) 1px, transparent 1px);
+  background-size:
+    32px 32px,
+    17px 17px;
+  background-position:
+    0 0,
+    8px 8px;
 }
 
 @utility rule-ornament {
@@ -157,8 +170,20 @@
 }
 
 @media print {
-  nav, footer, .no-print { display: none !important; }
-  body { background: white; color: black; }
-  a { color: inherit; text-decoration: none; }
-  .page-break { page-break-before: always; }
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .page-break {
+    page-break-before: always;
+  }
 }

@@ -36,6 +36,7 @@ then correct the two identity fields.
 
 Copy all tracked project files from `lovable/` into the new directory,
 excluding:
+
 - `.git/`
 - `node_modules/`
 - `*:Zone.Identifier` files (WSL/Windows metadata artifacts, unrelated to
@@ -75,6 +76,7 @@ dependencies at all.
 ### 3. Fix identity data
 
 In `src/content/site.ts`:
+
 - `author`: `"Luciani Heindrickson"` → `"Luciani Heindrickson da Silva"`
 - `city`: `"Foz do Iguaçu, Paraná — Brasil"` → `"Santa Terezinha de Itaipu, Paraná — Brasil"`
 
@@ -95,6 +97,7 @@ this work — commits are left to the user, per standing preference.
 ### 5. Verify
 
 From the new directory:
+
 - `bun install`
 - `bun run build` — must succeed
 - `bun run lint` — must succeed

@@ -50,7 +50,11 @@ function ProjectDetail() {
 
   return (
     <>
-      <PageHeader kicker={`Projeto · ${project.year}`} title={project.title} lead={project.subtitle} />
+      <PageHeader
+        kicker={`Projeto · ${project.year}`}
+        title={project.title}
+        lead={project.subtitle}
+      />
 
       <div className="mx-auto max-w-4xl px-6">
         <div className="flex flex-wrap justify-center gap-2 border-y border-border/70 py-3">
@@ -78,7 +82,9 @@ function ProjectDetail() {
       <section className="mx-auto max-w-3xl px-6 py-16">
         {tab === "contexto" && (
           <div className="space-y-12 font-serif text-lg leading-relaxed text-foreground/90">
-            <Block title="Contexto"><p>{project.context}</p></Block>
+            <Block title="Contexto">
+              <p>{project.context}</p>
+            </Block>
             <Block title="Objetivos">
               <List items={project.objectives} />
             </Block>
@@ -122,7 +128,10 @@ function ProjectDetail() {
             ) : (
               <ul className="divide-y divide-border/70 border border-border/70 bg-background">
                 {docs.map((d) => (
-                  <li key={d.file} className="flex flex-wrap items-center justify-between gap-3 p-5">
+                  <li
+                    key={d.file}
+                    className="flex flex-wrap items-center justify-between gap-3 p-5"
+                  >
                     <div>
                       <div className="font-display text-lg">{d.title}</div>
                       <div className="font-serif italic text-sm text-muted-foreground">

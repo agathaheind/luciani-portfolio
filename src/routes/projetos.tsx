@@ -41,8 +41,7 @@ function Projetos() {
             <div
               className="aspect-[4/5] w-full relative overflow-hidden"
               style={{
-                background:
-                  "linear-gradient(160deg, var(--sand), var(--clay) 70%, var(--cocoa))",
+                background: "linear-gradient(160deg, var(--sand), var(--clay) 70%, var(--cocoa))",
               }}
             >
               <div className="absolute inset-4 border border-paper/40" />
@@ -56,9 +55,7 @@ function Projetos() {
             <div>
               <h3 className="font-display text-3xl leading-tight">{p.title}</h3>
               {p.subtitle && (
-                <div className="mt-1 font-serif italic text-muted-foreground">
-                  {p.subtitle}
-                </div>
+                <div className="mt-1 font-serif italic text-muted-foreground">{p.subtitle}</div>
               )}
               <p className="mt-4 font-serif text-base leading-relaxed text-foreground/90">
                 {p.summary}

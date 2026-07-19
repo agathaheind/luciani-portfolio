@@ -38,8 +38,7 @@ function Producao() {
             <div
               className="aspect-[3/4] w-full relative overflow-hidden"
               style={{
-                background:
-                  "linear-gradient(135deg, var(--cocoa), var(--coffee) 60%, var(--ink))",
+                background: "linear-gradient(135deg, var(--cocoa), var(--coffee) 60%, var(--ink))",
               }}
             >
               <div className="absolute inset-6 border border-paper/30" />
@@ -47,13 +46,9 @@ function Producao() {
                 <div className="font-serif italic text-[11px] tracking-[0.25em] uppercase text-sand/80">
                   {bookCategoryLabel[b.category]}
                 </div>
-                <div className="mt-4 font-display text-2xl leading-tight text-paper">
-                  {b.title}
-                </div>
+                <div className="mt-4 font-display text-2xl leading-tight text-paper">{b.title}</div>
                 <div className="mt-6 h-px w-10 bg-sand/60" />
-                <div className="mt-4 font-serif italic text-sand/80 text-sm">
-                  {b.year}
-                </div>
+                <div className="mt-4 font-serif italic text-sand/80 text-sm">{b.year}</div>
               </div>
             </div>
             <div className="p-6 flex-1 flex flex-col">

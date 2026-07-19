@@ -128,7 +128,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="border-t border-border/60">
           <div className="mx-auto max-w-7xl px-6 py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
-            <span>© {new Date().getFullYear()} {site.author}. Todos os direitos reservados.</span>
+            <span>
+              © {new Date().getFullYear()} {site.author}. Todos os direitos reservados.
+            </span>
             <span className="font-serif italic">
               Portfólio institucional — editais de fomento à cultura
             </span>

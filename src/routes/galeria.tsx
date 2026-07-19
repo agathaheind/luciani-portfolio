@@ -28,7 +28,7 @@ function Galeria() {
   const [active, setActive] = useState<string>("Todas");
   const [lightbox, setLightbox] = useState<Photo | null>(null);
 
-  const list = active === "Todas" ? photos : grouped[active as keyof typeof grouped] ?? [];
+  const list = active === "Todas" ? photos : (grouped[active as keyof typeof grouped] ?? []);
 
   return (
     <>

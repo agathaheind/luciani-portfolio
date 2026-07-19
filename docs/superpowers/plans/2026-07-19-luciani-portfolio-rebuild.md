@@ -23,9 +23,11 @@
 ### Task 1: Install bun and copy the project to the new location
 
 **Files:**
+
 - Create: `/home/inasc/projects/luciani-portfolio/` (full copy of `/home/inasc/projects/lovable/`, minus exclusions)
 
 **Interfaces:**
+
 - Produces: a git-initialized directory at `/home/inasc/projects/luciani-portfolio` containing the full source tree, ready for Task 2 to edit in place.
 
 - [ ] **Step 1: Install bun globally via npm**
@@ -49,6 +51,7 @@ Expected: `ls: cannot access '/home/inasc/projects/luciani-portfolio': No such f
 - [ ] **Step 4: Copy the project tree, excluding node_modules and Zone.Identifier files**
 
 Run:
+
 ```bash
 mkdir -p /home/inasc/projects/luciani-portfolio
 rsync -a --exclude 'node_modules' --exclude '*:Zone.Identifier' /home/inasc/projects/lovable/ /home/inasc/projects/luciani-portfolio/
@@ -59,6 +62,7 @@ Expected: both commands exit 0.
 - [ ] **Step 5: Verify the copy**
 
 Run:
+
 ```bash
 find /home/inasc/projects/luciani-portfolio -name '*Zone.Identifier*'
 ls /home/inasc/projects/luciani-portfolio/src/content/site.ts /home/inasc/projects/luciani-portfolio/package.json /home/inasc/projects/luciani-portfolio/vite.config.ts
@@ -75,6 +79,7 @@ Expected: `Initialized empty Git repository in /home/inasc/projects/luciani-port
 - [ ] **Step 7: Commit the initial copy**
 
 Run:
+
 ```bash
 cd /home/inasc/projects/luciani-portfolio
 git add -A
@@ -88,6 +93,7 @@ Expected: commit succeeds; `git log --oneline` shows one commit.
 ### Task 2: Strip Lovable-specific ties
 
 **Files:**
+
 - Delete: `/home/inasc/projects/luciani-portfolio/.lovable/` (directory)
 - Delete: `/home/inasc/projects/luciani-portfolio/AGENTS.md`
 - Delete: `/home/inasc/projects/luciani-portfolio/src/lib/lovable-error-reporting.ts`
@@ -96,6 +102,7 @@ Expected: commit succeeds; `git log --oneline` shows one commit.
 - Modify: `/home/inasc/projects/luciani-portfolio/package.json`
 
 **Interfaces:**
+
 - Consumes: the copied tree produced by Task 1.
 - Produces: a tree with no Lovable editor/telemetry coupling except the intentionally-kept `@lovable.dev/vite-tanstack-config` build dependency, ready for Task 3's content edits.
 
@@ -124,6 +131,7 @@ Expected: exits 0.
 File: `/home/inasc/projects/luciani-portfolio/src/routes/__root.tsx`
 
 Replace:
+
 ```typescript
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -142,6 +150,7 @@ import { SiteLayout } from "../components/SiteLayout";
 ```
 
 With:
+
 ```typescript
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -159,6 +168,7 @@ import { SiteLayout } from "../components/SiteLayout";
 ```
 
 Then replace:
+
 ```typescript
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
@@ -171,6 +181,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 ```
 
 With:
+
 ```typescript
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
@@ -184,11 +195,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 File: `/home/inasc/projects/luciani-portfolio/bunfig.toml`
 
 Replace:
+
 ```toml
 minimumReleaseAgeExcludes = ["@lovable.dev/vite-tanstack-config", "@lovable.dev/mcp-js", "@lovable.dev/vite-plugin-dev-server-bridge", "@lovable.dev/vite-plugin-hmr-gate", "@lovable.dev/email-js", "@lovable.dev/webhooks-js"]
 ```
 
 With:
+
 ```toml
 minimumReleaseAgeExcludes = ["@lovable.dev/vite-tanstack-config"]
 ```
@@ -198,11 +211,13 @@ minimumReleaseAgeExcludes = ["@lovable.dev/vite-tanstack-config"]
 File: `/home/inasc/projects/luciani-portfolio/package.json`
 
 Replace:
+
 ```json
   "name": "tanstack_start_ts",
 ```
 
 With:
+
 ```json
   "name": "luciani-portfolio",
 ```
@@ -210,11 +225,13 @@ With:
 - [ ] **Step 7: Verify only the intentionally-kept dependency still references Lovable**
 
 Run:
+
 ```bash
 grep -rli lovable /home/inasc/projects/luciani-portfolio/src /home/inasc/projects/luciani-portfolio/package.json /home/inasc/projects/luciani-portfolio/bunfig.toml /home/inasc/projects/luciani-portfolio/vite.config.ts 2>/dev/null
 ```
 
 Expected output (exactly these three files, no others):
+
 ```
 /home/inasc/projects/luciani-portfolio/package.json
 /home/inasc/projects/luciani-portfolio/bunfig.toml
@@ -226,6 +243,7 @@ If `src/` shows up in the results, Step 4 was incomplete — go back and check `
 - [ ] **Step 8: Commit the Lovable-stripping changes**
 
 Run:
+
 ```bash
 cd /home/inasc/projects/luciani-portfolio
 git add -A
@@ -239,10 +257,12 @@ Expected: commit succeeds; `git log --oneline` shows two commits.
 ### Task 3: Fix client identity data
 
 **Files:**
+
 - Modify: `/home/inasc/projects/luciani-portfolio/src/content/site.ts`
 - Modify: `/home/inasc/projects/luciani-portfolio/src/routes/__root.tsx`
 
 **Interfaces:**
+
 - Consumes: the stripped tree from Task 2.
 - Produces: `site.author` = `"Luciani Heindrickson da Silva"`, `site.city` = `"Santa Terezinha de Itaipu, Paraná — Brasil"`, and matching page `<title>`/meta tags — the only content changes in scope for this plan.
 
@@ -251,6 +271,7 @@ Expected: commit succeeds; `git log --oneline` shows two commits.
 File: `/home/inasc/projects/luciani-portfolio/src/content/site.ts`
 
 Replace:
+
 ```typescript
 export const site = {
   author: "Luciani Heindrickson",
@@ -259,6 +280,7 @@ export const site = {
 ```
 
 With:
+
 ```typescript
 export const site = {
   author: "Luciani Heindrickson da Silva",
@@ -271,6 +293,7 @@ export const site = {
 File: `/home/inasc/projects/luciani-portfolio/src/routes/__root.tsx`
 
 Replace:
+
 ```typescript
       { title: "Luciani Heindrickson — Portfólio Cultural" },
       {
@@ -283,6 +306,7 @@ Replace:
 ```
 
 With:
+
 ```typescript
       { title: "Luciani Heindrickson da Silva — Portfólio Cultural" },
       {
@@ -297,6 +321,7 @@ With:
 - [ ] **Step 3: Verify both files were updated and no stray short-form name remains**
 
 Run:
+
 ```bash
 grep -n "author:" /home/inasc/projects/luciani-portfolio/src/content/site.ts
 grep -c "da Silva" /home/inasc/projects/luciani-portfolio/src/routes/__root.tsx
@@ -308,6 +333,7 @@ Expected: first command shows `author: "Luciani Heindrickson da Silva",`; second
 - [ ] **Step 4: Commit the identity fix**
 
 Run:
+
 ```bash
 cd /home/inasc/projects/luciani-portfolio
 git add -A
@@ -323,12 +349,14 @@ Expected: commit succeeds; `git log --oneline` shows three commits.
 **Files:** none (verification only — no files created or modified)
 
 **Interfaces:**
+
 - Consumes: the corrected tree from Task 3.
 - Produces: confirmation that the project builds, lints, and serves correctly with no dependency on the Lovable editor.
 
 - [ ] **Step 1: Install dependencies**
 
 Run:
+
 ```bash
 cd /home/inasc/projects/luciani-portfolio && bun install
 ```
@@ -338,6 +366,7 @@ Expected: exits 0; `node_modules/` is created.
 - [ ] **Step 2: Run the production build**
 
 Run:
+
 ```bash
 cd /home/inasc/projects/luciani-portfolio && bun run build
 ```
@@ -347,6 +376,7 @@ Expected: exits 0, output ends with a Vite/nitro success message (no errors).
 - [ ] **Step 3: Run the linter**
 
 Run:
+
 ```bash
 cd /home/inasc/projects/luciani-portfolio && bun run lint
 ```
@@ -356,6 +386,7 @@ Expected: exits 0, no errors reported.
 - [ ] **Step 4: Smoke-test the dev server**
 
 Run:
+
 ```bash
 cd /home/inasc/projects/luciani-portfolio
 bun run dev > /tmp/luciani-dev.log 2>&1 &
@@ -369,6 +400,7 @@ Expected: log shows a `Local:` URL (e.g. `http://localhost:3000`).
 - [ ] **Step 5: Request the home page and confirm the corrected name renders**
 
 Run (substitute the actual port found in Step 4's log):
+
 ```bash
 curl -s http://localhost:3000/ | grep -o "Luciani Heindrickson da Silva" | head -1
 ```
@@ -378,6 +410,7 @@ Expected: prints `Luciani Heindrickson da Silva`.
 - [ ] **Step 6: Stop the dev server**
 
 Run:
+
 ```bash
 kill "$(cat /tmp/luciani-dev.pid)"
 rm /tmp/luciani-dev.pid /tmp/luciani-dev.log

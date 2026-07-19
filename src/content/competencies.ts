@@ -38,8 +38,7 @@ export const competencies: Competency[] = [
   },
   {
     title: "Organização de Eventos",
-    description:
-      "Planejamento e execução de feiras, seminários, saraus, oficinas e lançamentos.",
+    description: "Planejamento e execução de feiras, seminários, saraus, oficinas e lançamentos.",
   },
   {
     title: "Mediação Cultural",

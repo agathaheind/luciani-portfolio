@@ -33,10 +33,7 @@ function Certificados() {
 
       <section className="mx-auto max-w-5xl px-6 pb-24 grid gap-6 sm:grid-cols-2">
         {documents.map((d) => (
-          <article
-            key={d.file}
-            className="flex gap-5 border border-border/70 bg-background p-5"
-          >
+          <article key={d.file} className="flex gap-5 border border-border/70 bg-background p-5">
             <div className="shrink-0 grid h-24 w-20 place-items-center border border-border bg-sand/60 text-clay">
               <FileText size={28} strokeWidth={1.5} />
             </div>
@@ -54,11 +51,7 @@ function Certificados() {
                 >
                   Visualizar →
                 </a>
-                <a
-                  className="font-serif italic text-cocoa hover:text-coffee"
-                  href={d.url}
-                  download
-                >
+                <a className="font-serif italic text-cocoa hover:text-coffee" href={d.url} download>
                   Download ↓
                 </a>
               </div>
