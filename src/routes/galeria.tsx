@@ -1,9 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { photos, photosByCategory, type Photo } from "@/content/media";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/galeria")({
+  beforeLoad: () => {
+    if (!isPageEnabled("galeria")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Galeria — Luciani Heindrickson da Silva" },

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { indicators, site } from "@/content/site";
 import { timeline } from "@/content/timeline";
@@ -6,9 +6,13 @@ import { books, bookCategoryLabel } from "@/content/books";
 import { projects } from "@/content/projects";
 import { documents } from "@/content/media";
 import { competencies } from "@/content/competencies";
+import { isPageEnabled } from "@/content/pages";
 import { Printer } from "lucide-react";
 
 export const Route = createFileRoute("/dossie")({
+  beforeLoad: () => {
+    if (!isPageEnabled("dossie")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Dossiê para Editais — Luciani Heindrickson da Silva" },

@@ -1,8 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { books, bookCategoryLabel } from "@/content/books";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/producao-literaria")({
+  beforeLoad: () => {
+    if (!isPageEnabled("producao-literaria")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Produção Literária — Luciani Heindrickson da Silva" },

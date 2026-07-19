@@ -1,8 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { projects } from "@/content/projects";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/projetos")({
+  beforeLoad: () => {
+    if (!isPageEnabled("projetos")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Projetos Culturais — Luciani Heindrickson da Silva" },

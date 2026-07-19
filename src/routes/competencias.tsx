@@ -1,8 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { competencies } from "@/content/competencies";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/competencias")({
+  beforeLoad: () => {
+    if (!isPageEnabled("competencias")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Competências — Luciani Heindrickson da Silva" },

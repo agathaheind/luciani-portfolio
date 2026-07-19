@@ -1,7 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/contribuicao")({
+  beforeLoad: () => {
+    if (!isPageEnabled("contribuicao")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Contribuição Cultural — Luciani Heindrickson da Silva" },

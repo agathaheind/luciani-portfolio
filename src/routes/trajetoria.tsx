@@ -1,8 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { timeline } from "@/content/timeline";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/trajetoria")({
+  beforeLoad: () => {
+    if (!isPageEnabled("trajetoria")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Trajetória Cultural — Luciani Heindrickson da Silva" },

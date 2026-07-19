@@ -1,9 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { documents } from "@/content/media";
 import { FileText } from "lucide-react";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/certificados")({
+  beforeLoad: () => {
+    if (!isPageEnabled("certificados")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Certificados — Luciani Heindrickson da Silva" },

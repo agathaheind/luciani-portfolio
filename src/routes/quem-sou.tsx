@@ -1,8 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { site } from "@/content/site";
+import { isPageEnabled } from "@/content/pages";
 
 export const Route = createFileRoute("/quem-sou")({
+  beforeLoad: () => {
+    if (!isPageEnabled("quem-sou")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Quem Sou — Luciani Heindrickson da Silva" },
