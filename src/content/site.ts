@@ -16,7 +16,7 @@ export const site = {
     "Escrita, memória e produção cultural na fronteira. Um portfólio institucional para editais públicos de fomento à cultura.",
 
   presentation:
-    "Luciani Heindrickson é brasileira, natural de Foz do Iguaçu (PR), formada em Letras Português/Espanhol pela UNIOESTE. Dedica-se à literatura de resistência, às perspectivas femininas e à pesquisa da memória local, articulando escrita, produção editorial e projetos culturais em torno da valorização das narrativas de mulheres e do patrimônio da tríplice fronteira.",
+    "Luciani Heindrickson da Silva é brasileira, natural de Foz do Iguaçu (PR), formada em Letras Português/Espanhol pela UNIOESTE. Dedica-se à literatura de resistência, às perspectivas femininas e à pesquisa da memória local, articulando escrita, produção editorial e projetos culturais em torno da valorização das narrativas de mulheres e do patrimônio da tríplice fronteira.",
 };
 
 // Indicadores da página inicial — edite livremente

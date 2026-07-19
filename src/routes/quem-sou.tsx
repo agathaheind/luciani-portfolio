@@ -5,13 +5,13 @@ import { site } from "@/content/site";
 export const Route = createFileRoute("/quem-sou")({
   head: () => ({
     meta: [
-      { title: "Quem Sou — Luciani Heindrickson" },
+      { title: "Quem Sou — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
-          "Trajetória de Luciani Heindrickson: escrita, literatura de resistência, memória local, pesquisa e produção cultural na tríplice fronteira.",
+          "Trajetória de Luciani Heindrickson da Silva: escrita, literatura de resistência, memória local, pesquisa e produção cultural na tríplice fronteira.",
       },
-      { property: "og:title", content: "Quem Sou — Luciani Heindrickson" },
+      { property: "og:title", content: "Quem Sou — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Narrativa biográfica da autora, escritora e produtora cultural de Foz do Iguaçu.",

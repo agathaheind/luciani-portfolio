@@ -11,13 +11,13 @@ import { Printer } from "lucide-react";
 export const Route = createFileRoute("/dossie")({
   head: () => ({
     meta: [
-      { title: "Dossiê para Editais — Luciani Heindrickson" },
+      { title: "Dossiê para Editais — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
           "Dossiê institucional consolidado para editais públicos de cultura — trajetória, produção, projetos, certificados e competências.",
       },
-      { property: "og:title", content: "Dossiê para Editais — Luciani Heindrickson" },
+      { property: "og:title", content: "Dossiê para Editais — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Documento único de apresentação institucional para editais de fomento à cultura.",

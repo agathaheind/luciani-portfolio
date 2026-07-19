@@ -5,13 +5,13 @@ import { site } from "@/content/site";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato — Luciani Heindrickson" },
+      { title: "Contato — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
-          "Fale com Luciani Heindrickson — escritora, pesquisadora da memória local e produtora cultural.",
+          "Fale com Luciani Heindrickson da Silva — escritora, pesquisadora da memória local e produtora cultural.",
       },
-      { property: "og:title", content: "Contato — Luciani Heindrickson" },
+      { property: "og:title", content: "Contato — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Canais de contato para propostas culturais, editoriais e institucionais.",

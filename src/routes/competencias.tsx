@@ -5,13 +5,13 @@ import { competencies } from "@/content/competencies";
 export const Route = createFileRoute("/competencias")({
   head: () => ({
     meta: [
-      { title: "Competências — Luciani Heindrickson" },
+      { title: "Competências — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
           "Competências técnicas e culturais da autora: pesquisa, história oral, escrita, produção editorial e mediação cultural.",
       },
-      { property: "og:title", content: "Competências — Luciani Heindrickson" },
+      { property: "og:title", content: "Competências — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Capacidades técnicas e culturais para execução de projetos.",

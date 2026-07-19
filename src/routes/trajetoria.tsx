@@ -5,13 +5,13 @@ import { timeline } from "@/content/timeline";
 export const Route = createFileRoute("/trajetoria")({
   head: () => ({
     meta: [
-      { title: "Trajetória Cultural — Luciani Heindrickson" },
+      { title: "Trajetória Cultural — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
-          "Linha do tempo comentada da trajetória cultural de Luciani Heindrickson: formação, publicações, projetos e participações.",
+          "Linha do tempo comentada da trajetória cultural de Luciani Heindrickson da Silva: formação, publicações, projetos e participações.",
       },
-      { property: "og:title", content: "Trajetória Cultural — Luciani Heindrickson" },
+      { property: "og:title", content: "Trajetória Cultural — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Cronologia da produção literária e cultural da autora.",

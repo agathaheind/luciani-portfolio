@@ -5,13 +5,13 @@ import { projects } from "@/content/projects";
 export const Route = createFileRoute("/projetos")({
   head: () => ({
     meta: [
-      { title: "Projetos Culturais — Luciani Heindrickson" },
+      { title: "Projetos Culturais — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
           "Projetos culturais concebidos, coordenados e executados pela autora — literatura, memória e patrimônio.",
       },
-      { property: "og:title", content: "Projetos Culturais — Luciani Heindrickson" },
+      { property: "og:title", content: "Projetos Culturais — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content:

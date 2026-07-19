@@ -4,13 +4,13 @@ import { PageHeader } from "@/components/PageHeader";
 export const Route = createFileRoute("/contribuicao")({
   head: () => ({
     meta: [
-      { title: "Contribuição Cultural — Luciani Heindrickson" },
+      { title: "Contribuição Cultural — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
           "Como a atuação da autora contribui para a preservação da memória, o fortalecimento da literatura, a valorização das mulheres e a democratização da cultura.",
       },
-      { property: "og:title", content: "Contribuição Cultural — Luciani Heindrickson" },
+      { property: "og:title", content: "Contribuição Cultural — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content:

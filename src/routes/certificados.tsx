@@ -6,13 +6,13 @@ import { FileText } from "lucide-react";
 export const Route = createFileRoute("/certificados")({
   head: () => ({
     meta: [
-      { title: "Certificados — Luciani Heindrickson" },
+      { title: "Certificados — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
           "Biblioteca documental de certificados, diplomas e declarações da autora — comprovações para editais culturais.",
       },
-      { property: "og:title", content: "Certificados — Luciani Heindrickson" },
+      { property: "og:title", content: "Certificados — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Certificados, diplomas e declarações para comprovação em editais.",

@@ -6,13 +6,13 @@ import { photos, photosByCategory, type Photo } from "@/content/media";
 export const Route = createFileRoute("/galeria")({
   head: () => ({
     meta: [
-      { title: "Galeria — Luciani Heindrickson" },
+      { title: "Galeria — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
           "Registro visual da atuação cultural: eventos, palestras, oficinas, comunidade e literatura.",
       },
-      { property: "og:title", content: "Galeria — Luciani Heindrickson" },
+      { property: "og:title", content: "Galeria — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Registro fotográfico da atuação cultural da autora.",

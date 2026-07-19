@@ -5,13 +5,13 @@ import { books, bookCategoryLabel } from "@/content/books";
 export const Route = createFileRoute("/producao-literaria")({
   head: () => ({
     meta: [
-      { title: "Produção Literária — Luciani Heindrickson" },
+      { title: "Produção Literária — Luciani Heindrickson da Silva" },
       {
         name: "description",
         content:
           "Estante virtual da autora — livros, antologias, crônicas, poesia, artigos e capítulos publicados.",
       },
-      { property: "og:title", content: "Produção Literária — Luciani Heindrickson" },
+      { property: "og:title", content: "Produção Literária — Luciani Heindrickson da Silva" },
       {
         property: "og:description",
         content: "Estante literária e publicações da autora.",
