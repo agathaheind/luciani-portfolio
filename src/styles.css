@@ -1,0 +1,164 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Editorial design system — palette inspired by old books, libraries,
+ * historical documents. Warm beige, sand, browns. No corporate accents.
+ */
+
+@theme inline {
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-clay: var(--clay);
+  --color-cocoa: var(--cocoa);
+  --color-coffee: var(--coffee);
+  --color-ink: var(--ink);
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-serif: "Lora", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 4px;
+
+  /* Palette (oklch approximations of #F5F1E8, #E8DDCB, #A67C52, #8B5E3C, #5D4037, #4A3428) */
+  --paper:   oklch(0.955 0.014 82);   /* #F5F1E8 bege claro */
+  --sand:    oklch(0.895 0.028 76);   /* #E8DDCB areia */
+  --clay:    oklch(0.605 0.070 60);   /* #A67C52 marrom claro */
+  --cocoa:   oklch(0.490 0.068 52);   /* #8B5E3C marrom médio */
+  --coffee:  oklch(0.365 0.037 45);   /* #5D4037 marrom escuro */
+  --ink:     oklch(0.295 0.030 40);   /* #4A3428 café */
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(0.975 0.010 82);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--coffee);
+  --primary-foreground: var(--paper);
+  --secondary: var(--sand);
+  --secondary-foreground: var(--coffee);
+  --muted: var(--sand);
+  --muted-foreground: oklch(0.455 0.040 50);
+  --accent: var(--clay);
+  --accent-foreground: var(--paper);
+  --destructive: oklch(0.48 0.14 30);
+  --destructive-foreground: var(--paper);
+  --border: oklch(0.83 0.028 72);
+  --input: oklch(0.83 0.028 72);
+  --ring: var(--clay);
+
+  --shadow-book: 0 1px 2px oklch(0.30 0.03 45 / 0.10), 0 8px 24px oklch(0.30 0.03 45 / 0.12);
+  --shadow-page: 0 1px 0 oklch(0.30 0.03 45 / 0.06);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern", "liga", "onum";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--coffee);
+  }
+
+  .font-display { font-family: var(--font-display); }
+  .font-serif   { font-family: var(--font-serif); }
+  .font-sans    { font-family: var(--font-sans); }
+
+  ::selection {
+    background: var(--clay);
+    color: var(--paper);
+  }
+}
+
+@utility paper-bg {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(oklch(0.30 0.03 45 / 0.035) 1px, transparent 1px),
+    radial-gradient(oklch(0.30 0.03 45 / 0.025) 1px, transparent 1px);
+  background-size: 32px 32px, 17px 17px;
+  background-position: 0 0, 8px 8px;
+}
+
+@utility rule-ornament {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--clay);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.rule-ornament::before,
+.rule-ornament::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+@utility drop-cap {
+  &::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    line-height: 0.9;
+    float: left;
+    padding: 0.35rem 0.65rem 0 0;
+    color: var(--cocoa);
+    font-weight: 500;
+  }
+}
+
+@media print {
+  nav, footer, .no-print { display: none !important; }
+  body { background: white; color: black; }
+  a { color: inherit; text-decoration: none; }
+  .page-break { page-break-before: always; }
+}
