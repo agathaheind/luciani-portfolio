@@ -74,14 +74,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Luciani Heindrickson — Portfólio Cultural" },
+      { title: "Luciani Heindrickson da Silva — Portfólio Cultural" },
       {
         name: "description",
         content:
-          "Portfólio cultural de Luciani Heindrickson — escritora, pesquisadora da memória local e produtora cultural. Trajetória, publicações, projetos e documentos para editais públicos.",
+          "Portfólio cultural de Luciani Heindrickson da Silva — escritora, pesquisadora da memória local e produtora cultural. Trajetória, publicações, projetos e documentos para editais públicos.",
       },
-      { name: "author", content: "Luciani Heindrickson" },
-      { property: "og:title", content: "Luciani Heindrickson — Portfólio Cultural" },
+      { name: "author", content: "Luciani Heindrickson da Silva" },
+      { property: "og:title", content: "Luciani Heindrickson da Silva — Portfólio Cultural" },
       {
         property: "og:description",
         content:

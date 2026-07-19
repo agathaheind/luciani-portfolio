@@ -5,9 +5,9 @@
 // -----------------------------------------------------------------------------
 
 export const site = {
-  author: "Luciani Heindrickson",
+  author: "Luciani Heindrickson da Silva",
   role: "Escritora · Pesquisadora da memória local · Produtora Cultural",
-  city: "Foz do Iguaçu, Paraná — Brasil",
+  city: "Santa Terezinha de Itaipu, Paraná — Brasil",
   email: "contato@lucianiheindrickson.com.br",
   phone: "+55 (45) 90000-0000",
   instagram: "@lucianiheindrickson",
