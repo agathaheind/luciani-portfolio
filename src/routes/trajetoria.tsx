@@ -1,8 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { timeline } from "@/content/timeline";
+import { isPageEnabled } from "@/content/pages";
+import { getPageHeader } from "@/content/pageContent";
+
+const header = getPageHeader("trajetoria");
 
 export const Route = createFileRoute("/trajetoria")({
+  beforeLoad: () => {
+    if (!isPageEnabled("trajetoria")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Trajetória Cultural — Luciani Heindrickson da Silva" },
@@ -24,11 +31,7 @@ export const Route = createFileRoute("/trajetoria")({
 function Trajetoria() {
   return (
     <>
-      <PageHeader
-        kicker="Capítulo II · Cronologia"
-        title="Trajetória cultural"
-        lead="Uma linha do tempo comentada — formação, publicações, projetos e participações."
-      />
+      <PageHeader kicker={header.kicker} title={header.title} lead={header.lead} />
       <section className="mx-auto max-w-4xl px-6 pb-24">
         <ol className="relative border-l border-border/70 pl-8 md:pl-12 space-y-14">
           {timeline.map((item, i) => (

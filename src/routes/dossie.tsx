@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { indicators, site } from "@/content/site";
 import { timeline } from "@/content/timeline";
@@ -6,9 +6,15 @@ import { books, bookCategoryLabel } from "@/content/books";
 import { projects } from "@/content/projects";
 import { documents } from "@/content/media";
 import { competencies } from "@/content/competencies";
+import { isPageEnabled } from "@/content/pages";
+import { getPageBody } from "@/content/pageContent";
+import { MarkdownContent } from "@/components/MarkdownContent";
 import { Printer } from "lucide-react";
 
 export const Route = createFileRoute("/dossie")({
+  beforeLoad: () => {
+    if (!isPageEnabled("dossie")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Dossiê para Editais — Luciani Heindrickson da Silva" },
@@ -145,13 +151,9 @@ function Dossie() {
       </Section>
 
       <Section title="7. Currículo condensado">
-        <p className="font-serif leading-relaxed">
-          Formada em Letras Português/Espanhol pela UNIOESTE, com mestrado em Letras. Atua há mais
-          de uma década na articulação entre escrita autoral, pesquisa da memória local e produção
-          cultural, tendo organizado seminários, feiras do livro, oficinas de escrita e coletâneas
-          literárias voltadas à valorização das narrativas femininas e do patrimônio da tríplice
-          fronteira.
-        </p>
+        <div className="font-serif leading-relaxed">
+          <MarkdownContent>{getPageBody("dossie")}</MarkdownContent>
+        </div>
       </Section>
 
       <footer className="mt-16 pt-8 border-t border-border text-center font-serif italic text-sm text-muted-foreground">

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-library.jpg";
-import { indicators, site } from "@/content/site";
+import { homeChapters, indicators, site } from "@/content/site";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -41,7 +41,7 @@ function Index() {
               className="mt-6 font-serif italic text-lg sm:text-xl"
               style={{ color: "var(--sand)" }}
             >
-              Escritora · Pesquisadora da memória local · Produtora Cultural
+              {site.role}
             </p>
             <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-paper/90">
               {site.tagline}
@@ -87,7 +87,7 @@ function Index() {
           <span className="rule-ornament">Apresentação</span>
         </div>
         <h2 className="mt-6 text-center font-display text-4xl md:text-5xl">
-          Uma escrita entre memória, literatura e fronteira.
+          {site.presentationHeading}
         </h2>
         <p className="drop-cap mt-10 font-serif text-lg leading-relaxed text-foreground/90">
           {site.presentation}
@@ -105,26 +105,7 @@ function Index() {
       {/* NAVEGAÇÃO EDITORIAL */}
       <section className="border-t border-border/60 bg-sand/40">
         <div className="mx-auto max-w-6xl px-6 py-20 grid gap-10 md:grid-cols-3">
-          {[
-            {
-              to: "/trajetoria",
-              kicker: "Capítulo I",
-              title: "Trajetória cultural",
-              desc: "Uma linha do tempo comentada: formação, projetos, publicações e participações.",
-            },
-            {
-              to: "/producao-literaria",
-              kicker: "Capítulo II",
-              title: "Produção literária",
-              desc: "A estante da autora — livros, antologias, crônicas, poesia e artigos.",
-            },
-            {
-              to: "/projetos",
-              kicker: "Capítulo III",
-              title: "Projetos culturais",
-              desc: "Iniciativas realizadas, com contexto, atividades, resultados e documentos.",
-            },
-          ].map((c) => (
+          {homeChapters.map((c) => (
             <Link
               key={c.to}
               to={c.to}

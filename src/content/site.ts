@@ -1,28 +1,53 @@
-// -----------------------------------------------------------------------------
-// SITE CONTENT — edit this file to update institutional info, indicators, bio,
-// contact and everything shown across the portfolio. All content lives in
-// src/content/*.ts so the site can be updated without touching components.
-// -----------------------------------------------------------------------------
+import { z } from "zod";
+import { parseYamlFile } from "./_lib/parse";
+
+const IndicatorSchema = z.object({
+  label: z.string(),
+  value: z.string(),
+});
+
+const HomeChapterSchema = z.object({
+  to: z.string(),
+  kicker: z.string(),
+  title: z.string(),
+  desc: z.string(),
+});
+
+const SiteSchema = z.object({
+  author: z.string(),
+  role: z.string(),
+  city: z.string(),
+  email: z.string(),
+  phone: z.string(),
+  instagram: z.string(),
+  tagline: z.string(),
+  presentation: z.string(),
+  presentationHeading: z.string(),
+  indicators: z.array(IndicatorSchema),
+  homeChapters: z.array(HomeChapterSchema),
+});
+
+const raw = import.meta.glob("/content/site.yaml", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+}) as Record<string, string>;
+
+const data = parseYamlFile(raw["/content/site.yaml"], SiteSchema, "content/site.yaml");
 
 export const site = {
-  author: "Luciani Heindrickson da Silva",
-  role: "Escritora · Pesquisadora da memória local · Produtora Cultural",
-  city: "Santa Terezinha de Itaipu, Paraná — Brasil",
-  email: "contato@lucianiheindrickson.com.br",
-  phone: "+55 (45) 90000-0000",
-  instagram: "@lucianiheindrickson",
-
-  tagline:
-    "Escrita, memória e produção cultural na fronteira. Um portfólio institucional para editais públicos de fomento à cultura.",
-
-  presentation:
-    "Luciani Heindrickson da Silva é brasileira, natural de Foz do Iguaçu (PR), formada em Letras Português/Espanhol pela UNIOESTE. Dedica-se à literatura de resistência, às perspectivas femininas e à pesquisa da memória local, articulando escrita, produção editorial e projetos culturais em torno da valorização das narrativas de mulheres e do patrimônio da tríplice fronteira.",
+  author: data.author,
+  role: data.role,
+  city: data.city,
+  email: data.email,
+  phone: data.phone,
+  instagram: data.instagram,
+  tagline: data.tagline,
+  presentation: data.presentation,
+  presentationHeading: data.presentationHeading,
 };
 
-// Indicadores da página inicial — edite livremente
-export const indicators: { label: string; value: string }[] = [
-  { label: "Participações em eventos", value: "24+" },
-  { label: "Produções literárias", value: "07" },
-  { label: "Projetos culturais", value: "12" },
-  { label: "Publicações & antologias", value: "15" },
-];
+export const indicators: { label: string; value: string }[] = data.indicators;
+
+export const homeChapters: { to: string; kicker: string; title: string; desc: string }[] =
+  data.homeChapters;

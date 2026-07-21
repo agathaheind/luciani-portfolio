@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { projects } from "@/content/projects";
+import { pages } from "@/content/pages";
 
 const BASE_URL = "";
 
@@ -8,19 +9,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const staticPaths = [
-          "/",
-          "/quem-sou",
-          "/trajetoria",
-          "/producao-literaria",
-          "/projetos",
-          "/galeria",
-          "/certificados",
-          "/competencias",
-          "/contribuicao",
-          "/contato",
-          "/dossie",
-        ];
+        const staticPaths = ["/", ...pages.filter((p) => p.enabled).map((p) => p.to)];
         const projectPaths = projects.map((p) => `/projetos/${p.slug}`);
         const urls = [...staticPaths, ...projectPaths]
           .map((p) => `  <url><loc>${BASE_URL}${p}</loc><changefreq>monthly</changefreq></url>`)

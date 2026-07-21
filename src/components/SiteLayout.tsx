@@ -2,20 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 import { site } from "@/content/site";
+import { pages } from "@/content/pages";
 
 const nav = [
   { to: "/", label: "Início" },
-  { to: "/quem-sou", label: "Quem Sou" },
-  { to: "/trajetoria", label: "Trajetória" },
-  { to: "/producao-literaria", label: "Produção" },
-  { to: "/projetos", label: "Projetos" },
-  { to: "/galeria", label: "Galeria" },
-  { to: "/certificados", label: "Certificados" },
-  { to: "/competencias", label: "Competências" },
-  { to: "/contribuicao", label: "Contribuição" },
-  { to: "/dossie", label: "Dossiê" },
-  { to: "/contato", label: "Contato" },
-] as const;
+  ...pages.filter((p) => p.enabled).map((p) => ({ to: p.to, label: p.label })),
+];
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -87,9 +79,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-7xl px-6 py-12 grid gap-10 md:grid-cols-3 text-sm">
           <div>
             <div className="font-display text-2xl text-coffee">{site.author}</div>
-            <p className="mt-3 font-serif italic text-muted-foreground">
-              Escritora · Pesquisadora da memória local · Produtora Cultural
-            </p>
+            <p className="mt-3 font-serif italic text-muted-foreground">{site.role}</p>
           </div>
           <div>
             <div className="rule-ornament">Contato</div>

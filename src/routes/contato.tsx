@@ -1,8 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { site } from "@/content/site";
+import { isPageEnabled } from "@/content/pages";
+import { getPageHeader } from "@/content/pageContent";
+
+const header = getPageHeader("contato");
 
 export const Route = createFileRoute("/contato")({
+  beforeLoad: () => {
+    if (!isPageEnabled("contato")) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: "Contato — Luciani Heindrickson da Silva" },
@@ -30,11 +37,7 @@ function Contato() {
   ];
   return (
     <>
-      <PageHeader
-        kicker="Correspondência"
-        title="Contato"
-        lead="Para propostas culturais, colaborações editoriais e convites institucionais."
-      />
+      <PageHeader kicker={header.kicker} title={header.title} lead={header.lead} />
       <section className="mx-auto max-w-xl px-6 pb-24">
         <dl className="divide-y divide-border/70 border-y border-border/70">
           {rows.map(([label, value, href]) => (
