@@ -6,6 +6,13 @@ const IndicatorSchema = z.object({
   value: z.string(),
 });
 
+const HomeChapterSchema = z.object({
+  to: z.string(),
+  kicker: z.string(),
+  title: z.string(),
+  desc: z.string(),
+});
+
 const SiteSchema = z.object({
   author: z.string(),
   role: z.string(),
@@ -15,7 +22,9 @@ const SiteSchema = z.object({
   instagram: z.string(),
   tagline: z.string(),
   presentation: z.string(),
+  presentationHeading: z.string(),
   indicators: z.array(IndicatorSchema),
+  homeChapters: z.array(HomeChapterSchema),
 });
 
 const raw = import.meta.glob("/content/site.yaml", {
@@ -35,6 +44,10 @@ export const site = {
   instagram: data.instagram,
   tagline: data.tagline,
   presentation: data.presentation,
+  presentationHeading: data.presentationHeading,
 };
 
 export const indicators: { label: string; value: string }[] = data.indicators;
+
+export const homeChapters: { to: string; kicker: string; title: string; desc: string }[] =
+  data.homeChapters;

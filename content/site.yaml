@@ -23,3 +23,17 @@ indicators:
     value: "12"
   - label: Publicações & antologias
     value: "15"
+presentationHeading: Uma escrita entre memória, literatura e fronteira.
+homeChapters:
+  - to: /trajetoria
+    kicker: Capítulo I
+    title: Trajetória cultural
+    desc: "Uma linha do tempo comentada: formação, projetos, publicações e participações."
+  - to: /producao-literaria
+    kicker: Capítulo II
+    title: Produção literária
+    desc: "A estante da autora — livros, antologias, crônicas, poesia e artigos."
+  - to: /projetos
+    kicker: Capítulo III
+    title: Projetos culturais
+    desc: "Iniciativas realizadas, com contexto, atividades, resultados e documentos."
