@@ -79,9 +79,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-7xl px-6 py-12 grid gap-10 md:grid-cols-3 text-sm">
           <div>
             <div className="font-display text-2xl text-coffee">{site.author}</div>
-            <p className="mt-3 font-serif italic text-muted-foreground">
-              Escritora · Pesquisadora da memória local · Produtora Cultural
-            </p>
+            <p className="mt-3 font-serif italic text-muted-foreground">{site.role}</p>
           </div>
           <div>
             <div className="rule-ornament">Contato</div>
