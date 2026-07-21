@@ -2,6 +2,9 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { competencies } from "@/content/competencies";
 import { isPageEnabled } from "@/content/pages";
+import { getPageHeader } from "@/content/pageContent";
+
+const header = getPageHeader("competencias");
 
 export const Route = createFileRoute("/competencias")({
   beforeLoad: () => {
@@ -28,11 +31,7 @@ export const Route = createFileRoute("/competencias")({
 function Competencias() {
   return (
     <>
-      <PageHeader
-        kicker="Capacidades Técnicas"
-        title="Competências"
-        lead="Um conjunto de saberes desenvolvidos entre a universidade, a escrita e a produção cultural na fronteira."
-      />
+      <PageHeader kicker={header.kicker} title={header.title} lead={header.lead} />
       <section className="mx-auto max-w-6xl px-6 pb-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {competencies.map((c, i) => (
           <article

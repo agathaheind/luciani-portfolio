@@ -3,6 +3,9 @@ import { useState } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { photos, photosByCategory, type Photo } from "@/content/media";
 import { isPageEnabled } from "@/content/pages";
+import { getPageHeader } from "@/content/pageContent";
+
+const header = getPageHeader("galeria");
 
 export const Route = createFileRoute("/galeria")({
   beforeLoad: () => {
@@ -36,11 +39,7 @@ function Galeria() {
 
   return (
     <>
-      <PageHeader
-        kicker="Registro Visual"
-        title="Galeria"
-        lead="Um catálogo visual da atuação cultural, organizado por categoria."
-      />
+      <PageHeader kicker={header.kicker} title={header.title} lead={header.lead} />
 
       <section className="mx-auto max-w-6xl px-6 pb-24">
         <div className="flex flex-wrap justify-center gap-2 mb-10">

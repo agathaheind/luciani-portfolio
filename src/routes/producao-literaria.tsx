@@ -2,6 +2,9 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { books, bookCategoryLabel } from "@/content/books";
 import { isPageEnabled } from "@/content/pages";
+import { getPageHeader } from "@/content/pageContent";
+
+const header = getPageHeader("producao-literaria");
 
 export const Route = createFileRoute("/producao-literaria")({
   beforeLoad: () => {
@@ -28,11 +31,7 @@ export const Route = createFileRoute("/producao-literaria")({
 function Producao() {
   return (
     <>
-      <PageHeader
-        kicker="Capítulo III · Estante"
-        title="Produção literária"
-        lead="A estante da autora — livros, antologias, crônicas, poesia, artigos e capítulos."
-      />
+      <PageHeader kicker={header.kicker} title={header.title} lead={header.lead} />
       <section className="mx-auto max-w-6xl px-6 pb-24 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {books.map((b) => (
           <article

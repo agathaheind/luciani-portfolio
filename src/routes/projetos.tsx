@@ -2,6 +2,9 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { projects } from "@/content/projects";
 import { isPageEnabled } from "@/content/pages";
+import { getPageHeader } from "@/content/pageContent";
+
+const header = getPageHeader("projetos");
 
 export const Route = createFileRoute("/projetos")({
   beforeLoad: () => {
@@ -29,11 +32,7 @@ export const Route = createFileRoute("/projetos")({
 function Projetos() {
   return (
     <>
-      <PageHeader
-        kicker="Capítulo IV · Realizações"
-        title="Projetos culturais"
-        lead="Iniciativas em literatura, memória e patrimônio — cada projeto reúne contexto, atividades, resultados e documentos."
-      />
+      <PageHeader kicker={header.kicker} title={header.title} lead={header.lead} />
       <section className="mx-auto max-w-5xl px-6 pb-24 space-y-8">
         {projects.map((p) => (
           <Link

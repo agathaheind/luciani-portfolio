@@ -3,6 +3,9 @@ import { PageHeader } from "@/components/PageHeader";
 import { documents } from "@/content/media";
 import { FileText } from "lucide-react";
 import { isPageEnabled } from "@/content/pages";
+import { getPageHeader } from "@/content/pageContent";
+
+const header = getPageHeader("certificados");
 
 export const Route = createFileRoute("/certificados")({
   beforeLoad: () => {
@@ -29,11 +32,7 @@ export const Route = createFileRoute("/certificados")({
 function Certificados() {
   return (
     <>
-      <PageHeader
-        kicker="Biblioteca Documental"
-        title="Certificados"
-        lead="Documentos oficiais, diplomas e declarações — organizados para consulta rápida por comissões de editais."
-      />
+      <PageHeader kicker={header.kicker} title={header.title} lead={header.lead} />
 
       <section className="mx-auto max-w-5xl px-6 pb-24 grid gap-6 sm:grid-cols-2">
         {documents.map((d) => (
